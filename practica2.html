@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+        <link rel="stylesheet" href="vistas.css">
+        
+        <meta charset="utf-8">
+        <title>Practica 1</title>
+        <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas{
+            background: red;
+        }
+        </style>
+        </head>
+        <body>
+            <div> <center><!-- #544F9F -->            
+
+                <div class="block1">
+                    <canvas id="mycanvas"></canvas>
+                    <script type="module">
+
+
+                    import * as THREE from './three.module.js';
+                    import { OrbitControls } from './OrbitControls.js';
+            /* //inicio */
+
+            var renderer = new THREE.WebGLRenderer({canvas: document.getElementById('mycanvas'), antialias: true});
+            
+            /* // tamaño depantalla */
+
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            /* //opciones de pañntalla */
+            var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.09, 500);
+
+            //control de camara orbit
+            var controls = new OrbitControls(camera, renderer.domElement);
+
+            /* //posición de camarra */
+            camera.position.set(0,15,50);
+
+            /* // se crea la escena  */
+            var scene = new THREE.Scene();
+
+/*             // guias de maya                     */
+            const gridHelper = new THREE.GridHelper(10,10, 0Xffff00, 0Xffff00);
+
+            scene.add(gridHelper);/* //se ñade a la escena
+            // */
+            const axesHelper = new THREE.AxesHelper(5);
+            scene.add(axesHelper);
+/* 
+             *///luces
+            var luz = new THREE.PointLight(0xffffff, 1);
+            luz.position.set(90,180,200);
+
+            /*             // se añaden luces a a escena */
+            scene.add(luz);
+
+            //se añaden geometrias
+            var geometry = new THREE.BoxGeometry(4,4,4);
+            /*             //material               */
+            var material = new THREE.MeshLambertMaterial({color: 0x0F3FFE2});
+
+            var mesh = new THREE.Mesh(geometry, material);
+            mesh.position.set(0, 2, 0);//
+            scene.add(mesh);
+
+                requestAnimationFrame(render);
+
+                function render(){
+                                               //mesh.rotation.x +=0.01
+    
+                       renderer.render(scene, camera);
+                      requestAnimationFrame(render);
+   
+                }
+                </script>
+                </center></div>
+            </div>
+        </section>
+
+    </body>
+</html>

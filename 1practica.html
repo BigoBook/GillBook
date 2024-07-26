@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>Practica 1</title>
+	<link rel="stylesheet" href="vistas.css">
+</head>
+	
+<body>
+	<div>
+	<div class="block1">
+<canvas id="mycanvas"></canvas>
+
+<script type="module">
+
+import * as THREE from './three.module.js';
+
+// Inicio
+var renderer= new THREE.WebGLRenderer({canvas: document.getElementById('mycanvas'), antialias: true});
+
+// Tamaño de la pantalla
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+// Opciones de camara
+var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 50);
+camera.position.set(0, 0, 0);
+
+// Se crea la escena
+var scene =new THREE.Scene();
+
+// Luces
+//var light = new THREE.AmbientLight(0xffffff, 0.5):
+var light1 = new THREE.PointLight(0xffffff, 0.5);
+
+// Se añaden las luces a la escena
+//scene.add(light);
+scene.add(light1);
+
+// Geometrias
+
+
+
+
+
+var geometrybox = new THREE.BoxGeometry( 2, 2, 2);
+
+
+//
+//PARAMETROS DE POSCION Y DECLARACION DE MALLAS
+
+
+var material = new THREE.MeshNormalMaterial( {color: 0x0F3FFE2} );
+var material2 = new THREE.MeshLambertMaterial( {color: 0x0F3FFE2, wireframe: true} );
+
+
+
+var box = new THREE.Mesh( geometrybox, material );
+box.position.set(2, 2, -15);
+
+
+
+
+
+
+
+
+
+
+//se añaden las geometrias a la escena
+scene.add(box);
+
+requestAnimationFrame(render);
+
+function render (){
+
+box.position.y += 0;
+
+
+renderer.render(scene, camera);
+requestAnimationFrame(render);
+
+}
+</script>
+</div>
+</div>
+</body>
+
+</html>

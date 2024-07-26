@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="vistas.css">
+	<meta charset="utf-8">
+	<title>Practica 1</title>
+	<style>
+	body{
+	margin: 0;
+overflow: hidden;
+}
+	canvas{
+background: red;
+}
+
+</style>
+</head>
+<body>
+	<div>
+	<div class="block1">
+<canvas id="mycanvas"></canvas>
+
+<script type="module">
+
+import * as THREE from './three.module.js';
+
+// Inicio
+var renderer= new THREE.WebGLRenderer({canvas: document.getElementById('mycanvas'), antialias: true});
+
+// Tamaño de la pantalla
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+// Opciones de camara
+var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 50);
+camera.position.set(0, 0, 0);
+
+// Se crea la escena
+var scene =new THREE.Scene();
+
+// Luces
+//var light = new THREE.AmbientLight(0xffffff, 0.5):
+var light1 = new THREE.PointLight(0xffffff, 0.5);
+
+// Se añaden las luces a la escena
+//scene.add(light);
+scene.add(light1);
+
+// Geometrias
+
+
+
+
+var geometrytorus = new THREE.TorusGeometry(1, .5, 10, 10);
+var geometryknot = new THREE.TorusKnotGeometry(.5, .25, 30, 15);
+
+
+//
+//PARAMETROS DE POSCION Y DECLARACION DE MALLAS
+
+
+var material = new THREE.MeshNormalMaterial( {color: 0x0F3FFE2} );
+var material2 = new THREE.MeshLambertMaterial( {color: 0x0F3FFE2, wireframe: true} );
+
+var torus = new THREE.Mesh( geometrytorus, material );
+torus.position.set(-5, 2, -15);
+var torus2 = new THREE.Mesh( geometrytorus, material2 );
+torus2.position.set(-1, 2, -15);
+
+var knot = new THREE.Mesh( geometryknot, material );
+knot.position.set(-5, -1, -15);
+var knot2 = new THREE.Mesh( geometryknot, material2 );
+knot2.position.set(-1, -1, -15);
+
+
+
+
+
+
+
+
+
+
+
+//se añaden las geometrias a la escena
+scene.add(torus, torus2, knot, knot2);
+
+requestAnimationFrame(render);
+
+function render (){
+torus.rotation.y += 0.02;
+torus2.rotation.y += 0.02;
+knot.rotation.y += 0.02;
+knot2.rotation.y += 0.02;
+
+
+renderer.render(scene, camera);
+requestAnimationFrame(render);
+
+}
+</script>
+</div>
+</div>
+</body>
+
+</html>
+
+
+
+

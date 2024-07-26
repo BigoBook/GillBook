@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+	
+<head>
+<meta charset="utf-8">
+<title>Formulario</title>
+
+</head>
+<link rel="stylesheet" type="text/css" href="formulario2CSScodigo.css">
+<body>
+	<section class="from-regiter">
+		<h2>GLOSARIO</h2>
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+
+			}
+			#header {
+				margin: auto;
+				width: 500px;
+				font-family: fantasy;
+			}
+
+			ul, ol {
+				list-style: none;
+			}
+			.nav li a {
+				background-color: rgb(255, 255, 255);
+				color: rgb(0, 0, 0);
+				text-decoration: none;
+				padding: 10px 15px;
+				display: block;
+			}
+			.nav li a:hover{
+				background-color: rgb(173, 54, 126);
+
+
+			}
+			.nav > li {
+				float: right;
+
+			}
+			.nav li ul {
+				display: none;
+				position: absolute;
+				min-width: 140px;
+			}
+			.nav li:hover > ul {
+				display: block;
+			}
+		</style>
+	<div id="header">
+		<ul class="nav">
+			<li><a href="">vistas completas</a>
+				<ul>
+					<li><a href="http://127.0.0.1:5500/1practica.html">vista1</a></li>
+					<li><a href="http://127.0.0.1:5500/pr%C3%A1ctica2FIGURAS%20MALLAS.html">vista2</a></li>
+					<li><a href="http://127.0.0.1:5500/pr%C3%A1ctica2FIGURAS%20MALLASpt%202.html">vista3</a></li>
+					<li><a href="http://127.0.0.1:5500/practica2.html">vista4</a></li>
+					<li><a href="http://127.0.0.1:5500/prectica1.html">vista5</a></li>
+					<li><a href="http://127.0.0.1:5500/BAR-1/index.html.html">Recorrido</a></li>
+					<li><a href="http://127.0.0.1:5500/CRUCERO A BORDO/JUIAL/Index.html">Juego</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+
+															<!-- ///////                                                 texto                                                  ////// -->
+
+		<p id="Texto">
+
+		<h1>CAMARA Y ESCENARIO</h1><br><br>
+
+			antes de generar figuras 3D es preciso conopcer que visual studuio code depende de varios <br>
+			complementos de codigo que permitan visualisar una escena que contemple las treas dismenciones<br>
+			por lo que depende de la herramienta "canvas", permitiendo tener un lienzo de trabajo.<br><br>
+
+			las variables que permiten el cabio de color en las figuras se deremina mediante la signación de un materia<br>
+			con la variable:  "THREE.Mesh( geometrycil, material )", se acompaña por valores (R,G,B) que definen<br>
+			 la cromancia del maretial establecido segun su valor de mesh.<br><br>
+			</p>
+
+			<center><iframe  id="iframeultimo" height="300" width="400" name="iframe1" src="1practica.html" border="none"></iframe></center>
+
+			<p id="Texto">
+		<h1>FIGURAS Y ANIMACIONES</h1><br><br>
+
+			Dntro de "THREE.Gomery" podemos observar a las figuras 3D segmentadas en sus caracteristiacas por valores "(a,b,c,d,f)"<br>
+			donde las siguientes se definen como:<br><br>
+
+			a.- delfine el radio de interno de una figura<br> 
+			b.- define el radio externo de una fugura<br>
+			c.- divide segmentos lo largo de una figura<br>
+			d.- divide en segmentos a lo ancho de una figura<br>
+			f.- divide segmrntos en la parte orbital de una figura desde la parte superior a la inferior y sus laterales<br><br>
+
+			En la animación a una figura utilisamos la herramienta ".rotation.(x,y ó z) += 0" que permite a la figurar rotar segun el <br>
+			eje indicado,"0" determina la velosidad de movimiento, cuya dirección depende segun su valor.En las siguentes secciones<br> 
+			podemos observaruna valor positivo en rotación de eje "y" por ejemplo:<br><br></p>
+
+			THREE.PointLight.-permite definir el tipo de luz que sera utilizada en el escenario<br>
+
+
+			<center><iframe  id="iframeultimo" height="300" width="400" name="iframe1" src="práctica2FIGURAS MALLASpt 2.html" border="none"></iframe>
+				<iframe  id="iframeultimo" height="300" width="500" name="iframe1" src="práctica2FIGURAS MALLAS.html" border="none"></iframe></center>
+
+			<p id="Texto">
+		<h1>Colntroladores</h1><br><br>
+
+			THREE.WebGLRenderer<br><br>
+			THREE.PerspectiveCamera.- determina las caracteristicas de la visión de la camara segun el siguente codigo:<br><br>
+			"(50, window.innerWidth / window.innerHeight, 0.1, 500)" donde 50 es el valor estandar segun la vista normal<br>
+			se pondera segun la altura y ancho de la pantalla con 0.1 y 500<br>
+			OrbitControls.- va de la mano con "camera.position.set(x,y,z)" permite el movimiento de camara<br><br>
+			desplazando sus movimientos segun una vista orbital o esferica centrada a un punto "0,0,0"<br>
+			sus pociónes determinan la visvilidad e invisibilidad del mapa. Se determnina por valores de codigo ".js" <br>
+			que permiten dar los ajustes de dirección de movimentos.<br><br>
+			THREE.GridHelper.- genera una malla dimencional visibles segun el color determinado segun su codigo RGB<br>
+			THREE.AxesHelper.- es una de la variables que guia la posición en eje X,Y,Z para guiar la posición de vista<br><br>
+			</p>
+
+		
+			<img src="gif.gif" width="100" height="100" alt=" " ><br>
+			<img src="gif2.gif" width="100" height="100" alt=" " ><br>
+		
+			
+			<center>
+			<iframe  id="iframeultimo" height="300" width="400" name="iframe1" src="practica2.html" border="none"></iframe>
+			<iframe  id="iframeultimo" height="300" width="400" name="iframe1" src="prectica1.html" border="none"></iframe>
+			<iframe  id="iframeultimo" height="600" width="800" name="iframe1" src="BAR-1/index.html.html" border="none"></iframe>
+			</center>
+			
+			
+
+
+				<p><a href="#">mul_abigail_delgadillo_mancilla@uneve.edu.mx</a></p>
+
+				<p><a href="https://www.uneve.edu.mx/">UNEVE-ICM</a></p>
+	
+		</section>
+	</body>
+</html>

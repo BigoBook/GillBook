@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="vistas.css">
+	<meta charset="utf-8">
+	<title>Practica 1</title>
+	<style>
+	body{
+	margin: 0;
+overflow: hidden;
+}
+	canvas{
+background: red;
+}
+
+</style>
+</head>
+<body>
+	<div>
+	<div class="block1">
+<canvas id="mycanvas"></canvas>
+
+<script type="module">
+
+import * as THREE from './three.module.js';
+
+// Inicio
+var renderer= new THREE.WebGLRenderer({canvas: document.getElementById('mycanvas'), antialias: true});
+
+// Tamaño de la pantalla
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+// Opciones de camara
+var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 50);
+camera.position.set(0, 0, 0);
+
+// Se crea la escena
+var scene =new THREE.Scene();
+
+// Luces
+//var light = new THREE.AmbientLight(0xffffff, 0.5):
+var light1 = new THREE.PointLight(0xffffff, 0.5);
+
+// Se añaden las luces a la escena
+//scene.add(light);
+scene.add(light1);
+
+// Geometrias
+
+
+var geometrycil = new THREE.CircleGeometry( 1, 32 );
+var geometryspher = new THREE.SphereGeometry( 1, 10, 10 );
+var geometryplan = new THREE.PlaneGeometry( 2, 2, 3, 3);
+var geometrybox = new THREE.BoxGeometry( 2, 2, 2, 3, 3, 3);
+var geometrycon = new THREE.ConeGeometry( 1, 2 , 5, 2, false);
+var geometrycyl = new THREE.CylinderGeometry( 1, 1, 2, 16 , 4, false);
+
+
+
+
+//
+//PARAMETROS DE POSCION Y DECLARACION DE MALLAS
+
+
+var material = new THREE.MeshNormalMaterial( {color: 0x0F3FFE2} );
+var material2 = new THREE.MeshLambertMaterial( {color: 0x0F3FFE2, wireframe: true} );
+
+var circle = new THREE.Mesh( geometrycil, material );
+circle.position.set(-4, -1, -15);
+
+var spher = new THREE.Mesh( geometryspher, material2 );
+spher.position.set(-1, -1, -15);
+
+var plan = new THREE.Mesh( geometryplan, material );
+plan.position.set(-4, 2, -15);
+
+var box = new THREE.Mesh( geometrybox, material2 );
+box.position.set(-1, 2, -15);
+
+var cone = new THREE.Mesh( geometrycon, material );
+cone.position.set(3, 2, -15);
+
+var cyl = new THREE.Mesh( geometrycyl, material2 );
+cyl.position.set(6, 2, -15);
+
+
+//var mesh2 = new THREE.Mesh(geometry2, material1);
+//mesh2.position.set(1, 0, -15);
+
+
+
+
+
+
+//se añaden las geometrias a la escena
+scene.add(circle,spher,plan,box, cone,cyl);
+
+requestAnimationFrame(render);
+
+function render (){
+circle.rotation.y += 0.02;
+spher.rotation.y += 0.02;
+plan.rotation.y += 0.02;
+box.rotation.y += 0.02;
+cone.rotation.y += 0.02;
+cyl.rotation.y += 0.02;
+
+
+renderer.render(scene, camera);
+requestAnimationFrame(render);
+
+}
+</script>
+</div>
+</div>
+</body>
+
+</html>
+
+
+
+

@@ -1,0 +1,39 @@
+
+			*{
+				padding: 0px;
+				margin: 0px;
+
+			}
+			#header {
+				margin: auto;
+				width: 500px;
+				font-family: fantasy;
+			}
+
+			ul, ol {
+				list-style: none;
+			}
+			.nav li a {
+				background-color: rgb(255, 255, 255);
+				color: rgb(0, 0, 0);
+				text-decoration: none;
+				padding: 10px 15px;
+				display: block;
+			}
+			.nav li a:hover{
+				background-color: rgb(195, 131, 255);
+
+
+			}
+			.nav > li {
+				float: right;
+
+			}
+			.nav li ul {
+				display: none;
+				position: absolute;
+				min-width: 140px;
+			}
+			.nav li:hover > ul {
+				display: block;
+			}
